@@ -61,10 +61,15 @@
             <span class="glyphicon glyphicon-fire"></span>Register</h1>
       </div>
       <!-- FORM -->
-      <form name="signup_form" novalidate ng-submit="signupForm()">
+      <form name="signup_form" novalidate ng-submit="signupForm()"  >
+        
+<!-- <ee val="test" ></ee> -->
+<tt val="currentUser" ></tt>
+
+
         <div id="firstName-group" class="form-group">
           <label>First Name</label>
-          <input type="text" class="form-control" name="name" ng-minlength="3" ng-maxlength="20" required ng-model="currentUser.firstName"/>
+          <input type="text" class="form-control" name="name" ng-minlength="3" ng-maxlength="20" required ng-model="test"/>
            <div class="error" 
                 ng-show="signup_form.name.$dirty && signup_form.name.$invalid">
             <small class="error" 
@@ -103,7 +108,26 @@
         </div>
         <div id="email-group" class="form-group">
           <label>Email</label>
-          <input type="text" class="form-control" />
+          <input type="text" class="form-control" name="email" ng-pattern="/@epam.com$/" ng-minlength="5" required ng-model="currentUser.email"/>
+           <div class="error" 
+                ng-show="signup_form.email.$dirty && signup_form.email.$invalid">
+            <small class="error" 
+                ng-show="signup_form.email.$error.required">
+                Your email is required.
+            </small>
+            <small class="error" 
+                    ng-show="signup_form.email.$error.minlength">
+                    Your email is required to be at least 5 characters
+            </small>
+            <small class="error" 
+                ng-show="signup_form.email.$error.pattern">
+                It must be epam mail box.
+            </small>
+          </div>
+
+
+
+
         </div>
         
         <div id="interested-group" class="form-group">
