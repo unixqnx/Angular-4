@@ -2,28 +2,30 @@
 
 'use strict'
 
-angular.module('2').controller('apCtrl', function($scope){
+angular.module('2').controller('apCtrl', function($scope, $state, sharedData){
 
-$scope.testValue = [new person('Dmitriy', 'Sankevich','Dmitriy_Sankevich@epam.com', true),  new person('Ivan', 'Ivanov','Ivan_Ivanov@epam.com', false)
-// ,new person('Dmitriy', 'Sankevich','Dmitriy_Sankevich@epam.com', true),  new person('Ivan', 'Ivanov','Ivan_Ivanov@epam.com', false)
-// ,new person('Dmitriy', 'Sankevich','Dmitriy_Sankevich@epam.com', true),  new person('Ivan', 'Ivanov','Ivan_Ivanov@epam.com', false)
-];
+$scope.testValue = [];//[new person('Dmitriy', 'Sankevich','Dmitriy_Sankevich@epam.com', '1'),  new person('Ivan', 'Ivanov','Ivan_Ivanov@epam.com', '2')];
+
+$scope.testValue = $scope.testValue.concat(sharedData.getPerson());
+
 
 $scope.currentUser = new person();
-$scope.signupForm = function(){}
-$scope.bring = false;
 
-$scope.ToBoolian = function(value){
+$scope.signupForm = function()
+{ 
+	sharedData.setPerson($scope.currentUser);
+	$scope.Navigate('home'); 
+};
 
-	return Boolean(value);
+$scope.Navigate = function(nav)
+{ 
+	$state.go(nav); 
 };
 
 
 
-
+$scope.bring = false;
 
 })
-
-
 
 })();

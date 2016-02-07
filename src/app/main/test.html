@@ -1,0 +1,132 @@
+  <div class="container">
+    <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">EPAM Party Faces</h2>
+                    <h3 class="section-subheading text-muted">These people will be there for sure</h3>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-4" ng-repeat="item in testValue">
+                    <ap person="item"></ap>  
+                </div>
+            </div>
+    </div>
+   </div>
+
+
+  <!-- REGISTER PAGE -->
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3">
+      <!-- PAGE TITLE -->
+      <div class="page-header">
+        <h1>
+            <span class="glyphicon glyphicon-fire"></span>Register</h1>
+      </div>
+      <!-- FORM -->
+      <form name="signup_form" novalidate ng-submit="signupForm()"  >
+
+        <epamer ng-model="currentUser"></epamer>
+
+        <div id="firstName-group" class="form-group">
+          <small class="error" 
+                ng-show="signup_form.$error.validEpamer && signup_form.name.$dirty && signup_form.lastname.$dirty">Only EPAM employee may be registered.</small>
+          <label>First Name</label>
+          <input type="text" class="form-control" name="name" ng-minlength="3" ng-maxlength="20" required ng-model="currentUser.firstName"/>
+           <div class="error" 
+                ng-show="signup_form.name.$touched && signup_form.name.$invalid">
+            <small class="error" 
+                ng-show="signup_form.name.$error.required">
+                Your firstname is required.
+            </small>
+            <small class="error" 
+                    ng-show="signup_form.name.$error.minlength">
+                    Your firstname is required to be at least 3 characters
+            </small>
+            <small class="error" 
+                    ng-show="signup_form.name.$error.maxlength">
+                    Your firstname cannot be longer than 20 characters
+            </small>
+          </div>
+        </div>
+
+        <div id="lastName-group" class="form-group">
+          <label>Last Name</label>
+          <input type="text" class="form-control" name="lastname" ng-minlength="3" ng-maxlength="20" required ng-model="currentUser.lastName"/>
+           <div class="error" 
+                ng-show="signup_form.lastname.$touched && signup_form.lastname.$invalid">
+            <small class="error" 
+                ng-show="signup_form.lastname.$error.required">
+                Your lastname is required.
+            </small>
+            <small class="error" 
+                    ng-show="signup_form.lastname.$error.minlength">
+                    Your lastname is required to be at least 3 characters
+            </small>
+            <small class="error" 
+                    ng-show="signup_form.lastname.$error.maxlength">
+                    Your lastname cannot be longer than 20 characters
+            </small>
+          </div>
+        </div>
+
+        <div id="email-group" class="form-group">
+          <label>Email</label>
+          <input type="text" class="form-control" name="email" ng-pattern="/@epam.com$/" ng-minlength="5" required ng-model="currentUser.email"/>
+           <div class="error" 
+                ng-show="signup_form.email.$touched && signup_form.email.$invalid">
+            <small class="error" 
+                ng-show="signup_form.email.$error.required">
+                Your email is required.
+            </small>
+            <small class="error" 
+                    ng-show="signup_form.email.$error.minlength">
+                    Your email is required to be at least 5 characters
+            </small>
+            <small class="error" 
+                ng-show="signup_form.email.$error.pattern">
+                It must be epam mail box.
+            </small>
+          </div>
+        </div>
+        
+        <div id="interested-group" class="form-group">
+          <label>Are you going to be there?</label>
+          <select name="singleSelect" class="form-control" ng-model="currentUser.will"> <!-- required> -->
+            <option value="">Select an option</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+
+<!--            <div class="error" 
+                ng-show="signup_form.singleSelect.$invalid">
+            <small class="error" 
+                ng-show="signup_form.singleSelect.$error.required">
+                000000000000000000000000000000000000000
+            </small>
+          </div> -->
+
+        </div>
+        <div id="guest-group" class="checkbox">
+          <label><input type="checkbox" ng-model="bring">I'm brining a +1</label>
+        </div>
+        <div id="guest-name" class="form-group" ng-if="bring">
+          <label>Name of Guest</label>
+          <input type="text" class="form-control" name="guest" required ng-model="currentUser.guestName"/>
+           <div class="error" 
+                ng-show="signup_form.guest.$touched && signup_form.guest.$invalid">
+            <small class="error" 
+                ng-show="signup_form.guest.$error.required">
+                It os necessary to enter guest name.
+            </small>
+          </div>
+        </div>
+        <!-- SUBMIT BUTTON -->
+        <button type="submit" class="btn btn-success btn-lg btn-block" ng-disabled="signup_form.$invalid"> <span class="glyphicon glyphicon-flash"></span> Submit!
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
