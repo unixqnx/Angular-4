@@ -4,6 +4,7 @@
             <div class="row" ng-show="testValue.length==0">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">EPAM Party Faces</h2>
+                    <h2 class="section-heading text-muted">Today in {{weather.name}}: {{(weather.main.temp-273.15)| number:0}}&deg;c, {{weather.weather[0].description}}</h2>
                     <h3 class="section-subheading text-muted">There is no one present yet</h3>
                 </div>
                 <div class="col-lg-12 text-center">
@@ -41,6 +42,7 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <h2 class="section-heading">EPAM Party Faces</h2>
+                        <h2 class="section-heading text-muted">Today in {{weather.name}}: {{(weather.main.temp-273.15)| number:0}}&deg;c, {{weather.weather[0].description}}</h2>
                         <h3 class="section-subheading text-muted">These people will be there for sure</h3>
                     </div>
                 </div>
