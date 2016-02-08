@@ -4,12 +4,14 @@
 
 angular.module('2').controller('apCtrl', function($scope, $state, sharedData){
 
-$scope.testValue = [];//[new person('Dmitriy', 'Sankevich','Dmitriy_Sankevich@epam.com', '1'),  new person('Ivan', 'Ivanov','Ivan_Ivanov@epam.com', '2')];
-
+$scope.testValue = [new person('Dmitriy', 'Sankevich','Dmitriy_Sankevich@epam.com', '1'),  new person('Ivan', 'Ivanov','Ivan_Ivanov@epam.com', '2')];
 $scope.testValue = $scope.testValue.concat(sharedData.getPerson());
 
 
 $scope.currentUser = new person();
+$scope.sort='';
+$scope.attending='';
+$scope.search='';
 
 $scope.signupForm = function()
 { 
