@@ -2,9 +2,9 @@
 
 'use strict'
 
-angular.module('2').controller('apCtrl', function($scope, $state, sharedData, weatherService){
+angular.module('2').controller('app', function($scope, $state, sharedData, weatherService){
 
-$scope.testValue = [];//[new person('Dmitriy', 'Sankevich','Dmitriy_Sankevich@epam.com', '1'),  new person('Ivan', 'Ivanov','Ivan_Ivanov@epam.com', '2')];
+$scope.testValue = [new person('Dmitriy', 'Sankevich','Dmitriy_Sankevich@epam.com', '1'),  new person('Ivan', 'Ivanov','Ivan_Ivanov@epam.com', '2')];
 $scope.testValue = $scope.testValue.concat(sharedData.getPerson());
 
 

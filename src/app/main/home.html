@@ -48,10 +48,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-4" ng-repeat="item in testValue | filter:{will:attending, firstName:search} | orderBy:sort"> 
-
-
-                    <!-- | filter:{will:attending, firstName:search}"> -->
-                        <ap person="item"></ap>  
+                        <participant person="item"></participant>  
                     </div>
                 </div>
             </div>            
